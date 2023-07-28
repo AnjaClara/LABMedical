@@ -1,0 +1,64 @@
+@import url(../../../node_modules/bootstrap/dist/css/bootstrap.min.css);
+@import '../../styles/root.css';
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: var(--ligh-blue);
+  font-family: Arial, sans-serif;
+}
+
+form{
+  align-items: center;
+}
+
+a{
+  cursor: pointer;
+}
+
+.content-registration{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container-registration{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: var(--blue);
+  width: 406px;
+  height: 406px;
+  border-radius: 6px;
+  padding: 0px 0 0 0;
+  margin-bottom: 15px;
+}
+
+.form-group2{
+  margin-top: 6px;
+  color: var(--lavanda);
+}
+
+.invalid-feedback{
+  font-size: 15px;
+}
+
+#exampleInputPassword, #exampleInputPasswordTrue1{
+  margin-top: 6px;
+}
+
+#exampleInputPassword{
+  margin-bottom: 6px;
+}

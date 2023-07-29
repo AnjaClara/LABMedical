@@ -1,6 +1,6 @@
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import '../src/styles/root.css';
 
-.body{
-  background-color: var(--ligh-blue);
+* {
+  font-family: Arial, sans-serif;
 }

@@ -14,6 +14,10 @@ const ShowByEmail = (email) => {
   return Get().find(user => user.email === email);
 }
 
+const ShowByName = (name) => {
+  return Get().find(user => user.name === name);
+}
+
 const Create = (data) => {
   const body = {
     ...data,
@@ -40,6 +44,7 @@ export const UserService = {
   Get,
   Show,
   ShowByEmail,
+  ShowByName,
   Create,
   Update,
   Delete,

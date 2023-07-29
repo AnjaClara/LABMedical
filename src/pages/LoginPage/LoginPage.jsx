@@ -36,9 +36,9 @@ function LoginPage() {
       return;
     }
 
-    if(user.password === data.password){
-      // console.log('deu boa');
-      return alert("Welcome")
+    if(user.password === data.password && user){
+      navigate('/homepage');
+      return alert("Welcome!")
     } else {
       alert('Unregistered user');
       reset();

@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body{
@@ -16,10 +17,6 @@ body{
 
 form{
   align-items: center;
-}
-
-a{
-  cursor: pointer;
 }
 
 .content-registration{
@@ -40,7 +37,7 @@ a{
   margin: 0 auto;
   background-color: var(--blue);
   width: 406px;
-  height: 406px;
+  height: 485px;
   border-radius: 6px;
   padding: 0px 0 0 0;
   margin-bottom: 15px;

@@ -15,6 +15,9 @@ function RegistrationPage() {
   }
 
   const formSchema = Yup.object().shape({
+    name: Yup.string()
+      .required('We need to know your name')
+      .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, 'Name must contain only letters'),
     email: Yup.string()
       .required('E-mail is mandatory')
       .email('Email is invalid'),
@@ -30,7 +33,7 @@ function RegistrationPage() {
   const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors } = formState;
 
-  function onSubmit(data) {
+  function onSubmit(data) {   
     UserService.Create(data);
     return alert('User successfully registered! Go back to the login page to enter the platform.')
   }
@@ -39,15 +42,21 @@ function RegistrationPage() {
     <div>
       <body>
         <div className='content-registration'>
-        <h1 className='tiltle-registration'><img style={{ width: 65, height: 65 }} src={Arquivo}/><strong> SIGN UP!</strong></h1>
+        <h1 className='tiltle-registration'><img style={{ width: 65, height: 65 }} src={Arquivo}/><strong> SIGN UP</strong></h1>
           <div className="container-registration">
 
             <form onSubmit={handleSubmit(onSubmit)}>
 
-              <div className="form-group">
+                <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Email address</label>
                   <input name="email" type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="youremail@mail.com" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.email?.message}</div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">Tell us your name</label>
+                  <input name="name" type="text" id="exampleInputName" aria-describedby="name" placeholder="your name" {...register('name')} className={`form-control ${errors.name ? 'is-invalid' : ''}`}/>
+                  <div className="invalid-feedback">{errors.name?.message}</div>
                 </div>
 
                 <div className="form-group2">

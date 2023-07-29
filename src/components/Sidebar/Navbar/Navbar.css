@@ -1,0 +1,100 @@
+@import url('../../../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import '../../../styles/root.css';
+
+.navbar{
+  background-color: var(--blue) !important;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.click-menu img{
+  margin-left: 1rem !important;
+}
+
+.menu-bars{
+  margin-left: 1rem;
+  font-size: 3rem;
+  background: none;
+}
+
+.nav-menu{
+  background-color: var(--blue) !important;
+  width: 255px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active{
+  left: 0;
+  transition: 320ms;
+}
+
+.nav {
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 30px;
+  display: flex;
+  color: var(--purple);
+  width: 58px;
+  padding: 5px;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.nav:hover{
+  color: var(--red);
+  font-size: 20px;
+  width: 65px;
+  transform: scale(0.95) !important;
+}
+
+.nav-text{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a{
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover{
+  color: var(--blue) !important;
+  background-color: var(--lavanda);
+  border-radius: 6px;
+  height: 55px;
+}
+
+.nav-menu-items{
+  width: 100%;
+  padding-left: 0;
+  padding-right: 8px;
+}
+
+.navbar-toggle{
+  background-color: var(--blue);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+span {
+  margin-left: 10px;
+}

@@ -1,0 +1,60 @@
+@import url('../../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import '../../styles/root.css';
+
+.container-tool{
+  display: flex;
+  position: absolute;
+  margin-left: 88%;
+  margin-top: 10px;
+}
+
+.name-tool{
+  display: flex;
+  position: absolute;
+  margin-left: 80%;
+  margin-top: 10px;
+}
+
+.name-tool span{
+  margin-top: -1px;
+  font-size: 0.9em;
+  line-height: 1.1;
+  color: var(--black-purple);
+  font-weight: 550;
+  width: 90px;
+}
+
+@media screen and (min-width: 1190px){
+  .container-tool{
+    margin-left: 94% !important;
+  }
+  .name-tool{
+    margin-left: 88%;
+  }
+}
+
+@media screen and (max-width: 980px){
+  .name-tool{
+    margin-left: 80%;
+  }
+}
+
+@media screen and (max-width: 850px){
+  .name-tool{
+    margin-left: 75%;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .name-tool{
+    margin-left: 70%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .name-tool{
+    margin-top: 10px;
+    margin-left: 70%;
+    width: 10px;
+  }
+}

@@ -1,0 +1,428 @@
+@import url('../../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import '../../styles/root.css';
+
+body{
+  background-color: var(--ligh-blue);
+  font-family: Arial, sans-serif;
+}
+
+.form-patient{
+  height: 100% !important;
+  width: 100% !important;
+  margin-left: 9.5% !important;
+  align-items: center !important;
+}
+
+.title-patient h1{
+  margin-top: 25px;
+  color: var(--purple) !important;
+  font-size: 2.5em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.content-form-patient{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+}
+
+.conteiner-form-patient{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: var(--blue);
+  width: 900px;
+  height: 620px;
+  border-radius: 6px;
+  padding: 0px 0 0 0;
+  margin-top: 20px;
+}
+
+.form-group1-patient{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 270px;
+}
+
+.form-group2-patient{
+  position: absolute;
+  margin-left: 300px;
+  color: var(--lavanda);
+  margin-top: -61.5px !important;
+  width: 233px;
+}
+
+.form-group3-patient{
+  position: absolute;
+  margin-left: 560px;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 20px;
+}
+
+#inputDate, #inputCPF{
+  color: #B4B6C1;
+  width: 150px;
+}
+
+.form-group4-patient{
+  position: absolute;
+  margin-left: 175px;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 20px;
+}
+
+.form-group5-patient{
+  position: absolute;
+  margin-left: 350px;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 182px;
+}
+
+.form-group6-patient{
+  position: absolute;
+  margin-left: 560px;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 170px;
+}
+
+.invalid-feedback{
+  z-index: 2;
+}
+
+.form-group7-patient{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 170px;
+}
+
+.form-group8-patient{
+  position: absolute;
+  margin-left: 195px;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 170px;
+}
+
+.form-group9-patient{
+  position: absolute;
+  margin-left: 395px;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 148px;
+}
+
+.form-group10-patient{
+  position: absolute;
+  margin-left: 560px;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 170px;
+}
+
+.form-group11-patient{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 220px;
+}
+
+.form-group12-patient, .form-group13-patient{
+  position: absolute;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 220px;
+}
+
+.form-group12-patient{
+  margin-left: 510px;
+}
+
+.form-group13-patient{
+  margin-left: 255px;
+}
+
+.form-group14-patient{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 100px;
+}
+
+.form-group15-patient, .form-group16-patient{
+  position: absolute;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 280px;
+}
+
+.form-group15-patient{
+  margin-left: 135px;
+}
+
+.form-group16-patient{
+  margin-left: 450px;
+}
+
+.form-group17-patient{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 230px;
+}
+
+.form-group18-patient{
+  position: absolute;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 140px;
+  margin-left: 265px;
+}
+
+.form-group19-patient{
+  position: absolute;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 291px;
+  margin-left: 440px;
+}
+
+.form-group20-patient{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 350px;
+}
+
+.form-group21-patient{
+  position: absolute;
+  margin-top: -62px !important;
+  color: var(--lavanda);
+  width: 350px;
+  margin-left: 380px;
+}
+
+.form-group22-patient{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 350px;
+}
+
+.form-group23-patient{
+  position: absolute;
+  margin-top: -86px !important;
+  color: var(--lavanda);
+  width: 350px;
+  margin-left: 380px;
+}
+
+
+#buttonSave{
+  width: 90px;
+  margin-left: 20px;
+  margin-top: 35px !important;
+}
+
+#buttonDelete{
+  width: 90px;
+  margin-left: 20px;
+  margin-top: 35px !important;
+}
+
+#buttonEdit{
+  width: 90px;
+  margin-left: 25%;
+  margin-top: 35px !important;
+}
+
+.invalid-feedback{
+  width: 210px !important;
+  margin-top: -3px !important;
+  position:absolute;
+}
+
+select{
+  color: #B4B6C1 !important;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--bs-body-bg);
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: 170px !important;
+}
+
+select:hover {
+  border-color: #646cff;
+}
+
+select:focus{
+  outline: none;
+}
+
+@media screen and (max-width: 940px){
+  .form-group1-patient{
+    font-size: 15px;
+    width: 80px;
+  }
+
+  .form-group2-patient{
+    width: 140px;
+    margin-left: 100px;
+  }
+
+  .form-group3-patient{
+    margin-left: 260px;
+  }
+
+  .form-group4-patient{
+    margin-left: 100px;
+  }
+
+  #inputDate, #inputCPF{
+    width: 90px;
+  }
+
+  .form-group5-patient{
+    margin-left: 200px;
+    width: 70px;
+  }
+
+  .form-group6-patient{
+    margin-left: 280px;
+    width: 80px;
+    font-size: 10px;
+    margin-top: -53px !important;
+  }
+
+  #marital select{
+    width: 20px !important;
+  }
+
+  .form-group8-patient{
+    width: 60px;
+    margin-left: 120px;
+    font-size: 15px;
+  }
+
+  .form-group9-patient{
+    width: 80px;
+    margin-left: 190px;
+    font-size: 15px;
+    margin-top: -62px !important;
+  }
+
+  .form-group10-patient{
+    width: 80px;
+    margin-left: 280px;
+    font-size: 10px;
+    margin-top: -70px !important;
+  }
+
+  .form-group11-patient{
+    width: 90px;
+    font-size: 10px;
+  }
+
+  .form-group12-patient{
+    width: 120px;
+    font-size: 12px;
+    margin-left: 115px;
+    margin-top: -57px !important;
+  }
+
+  .form-group13-patient{
+    width: 100px;
+    font-size: 10px;
+    margin-left: 260px;
+    margin-top: -55px !important;
+  }
+
+  .form-group14-patient{
+    width: 90px;
+  }
+
+  .form-group15-patient{
+    width: 120px;
+    margin-left: 115px;
+    margin-top: -62.5px !important;
+  }
+
+  .form-group16-patient{
+    width: 100px;
+    margin-left: 260px;
+    margin-top: -62.5px !important;
+  }
+
+  .form-group17-patient{
+    width: 100px;
+  }
+
+  .form-group18-patient{
+    width: 120px;
+    font-size: 12px;
+    margin-left: 115px;
+    margin-top: -57px !important;
+  }
+
+  .form-group19-patient{
+    width: 100px;
+    font-size: 13px;
+    margin-left: 260px;
+    margin-top: -59.5px !important;
+  }
+
+  .form-group20-patient{
+    width: 170px;
+  }
+
+  .form-group21-patient{
+    width: 170px;
+    margin-left: 190px;
+  }
+
+  .form-group22-patient{
+    width: 170px;
+  }
+
+  .form-group23-patient{
+    width: 170px;
+    margin-left: 190px;
+  }
+
+  .custom-select{
+    width: 100px !important;
+  }
+
+  #buttonSave{
+    margin-left: 10px;
+    margin-top: 35px !important;
+  }
+
+  #buttonDelete{
+    margin-left: 10px;
+    margin-top: 35px !important;
+  }
+  
+  #buttonEdit{
+    margin-left: 8%;
+    margin-top: 35px !important;
+  }
+
+  .invalid-feedback{
+    width: 100px !important;
+    margin-top: -3px !important;
+    position: absolute !important;
+    z-index: 2;
+  }
+
+  .conteiner-form-patient{
+    width: 450px;
+  }
+}

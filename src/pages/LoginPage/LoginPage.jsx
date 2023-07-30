@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import Farmacia from '../../assets/farmacia.png';
-import { UserService } from '../../services/UserService';
+import { UserService } from '../../services/DoctorsServices/UserService';
 import './LoginPage.css'
+import { AuthService } from '../../services/AuthService';
 
 function LoginPage() {
 
@@ -37,6 +38,7 @@ function LoginPage() {
     }
 
     if(user.password === data.password && user){
+      AuthService.Set(user);
       navigate('/homepage');
       return alert("Welcome!")
     } else {

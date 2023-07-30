@@ -1,4 +1,4 @@
-import { LocalStorageService } from "./LocalStorage.service";
+import { LocalStorageService } from "../LocalStorage.service";
 
 const key = 'users';
 

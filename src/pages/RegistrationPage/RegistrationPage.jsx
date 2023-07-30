@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import Arquivo from '../../assets/arquivo.png';
-import { UserService } from '../../services/UserService';
+import { UserService } from '../../services/DoctorsServices/UserService';
 import './RegistrationPage.css';
 
 function RegistrationPage() {

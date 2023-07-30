@@ -5,12 +5,15 @@ import { SidebarData } from '../SidebarData/SidebarData';
 import Close from '../../../assets/fechar.png'
 import Logo from '../../../assets/LABMEDICAL.png'
 import './Navbar.css';
+import Toolbar from '../../Toolbar/Toolbar';
+import { AuthService } from '../../../services/AuthService';
 
 function Navbar(){
 
   const navigate = useNavigate();
 
   const handleOut= () =>{
+    AuthService.Set(null)
     navigate('/')
   }
 
@@ -25,8 +28,9 @@ function Navbar(){
     <div>
       <div className="navbar">
         <div className='click-menu'>
-        <img className='click-menu' style={{ width: 45, height: 45, cursor:'pointer' }} src={Menu} onClick={showSidebar}/>
-        <img style={{  cursor:'pointer' }} src={Logo}/>
+          <Toolbar/>
+          <img className='click-menu' style={{ width: 45, height: 45, cursor:'pointer' }} src={Menu} onClick={showSidebar}/>
+          <img style={{  cursor:'pointer' }} src={Logo}/>
         </div>
       </div>
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

@@ -6,7 +6,7 @@ body{
   font-family: Arial, sans-serif;
 }
 
-.form-query{
+.form-exam{
   height: 100% !important;
   width: 100% !important;
   margin-left: 9.5% !important;
@@ -14,7 +14,7 @@ body{
   align-items: center !important;
 }
 
-.title-query h1{
+.title-exam h1{
   margin-top: 25px;
   color: var(--purple) !important;
   font-size: 2.5em;
@@ -22,7 +22,7 @@ body{
   text-align: center;
 }
 
-.content-form-query{
+.content-form-exam{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,14 +30,14 @@ body{
   position: absolute;
 }
 
-.conteiner-form-query{
+.conteiner-form-exam{
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   background-color: var(--blue);
   width: 850px;
-  height: 530px;
+  height: 595px;
   border-radius: 6px;
   padding: 0px 0 0 0;
   margin-top: 20px;
@@ -64,55 +64,61 @@ body{
   height: 40px;
 }
 
-.query-from-user{
+.exam-from-user{
   font-size: 1.8rem;
   margin-top: 25px !important;
   color: var(--purple);
 }
 
-.reason-query{
+.name-exam{
   margin-top: 10px !important;
   color: var(--lavanda);
   width: 420px;
 }
 
-.date-query{
+.date-exam{
   position: absolute;
   margin-top: -62px !important;
   margin-left: 450px;
   color: var(--lavanda);
 }
 
-.time-query{
+.time-exam{
   position: absolute;
   margin-top: -62px !important;
   margin-left: 620px;
   color: var(--lavanda);
 }
 
-.problem-query{
+.type-exam{
   margin-top: 10px !important;
   color: var(--lavanda);
   width: 720px;
 }
 
-.medication-query{
+.lab-exam{
   margin-top: 10px !important;
   color: var(--lavanda);
   width: 720px;
 }
 
-.dosage-query{
+.url-exam{
   margin-top: 10px !important;
   color: var(--lavanda);
   width: 720px;
 }
 
-#inputTime, #inputDateQuery{
+.results-exam{
+  margin-top: 10px !important;
+  color: var(--lavanda);
+  width: 720px;
+}
+
+#inputTime, #inputDateExam{
   color: #B4B6C1;
 }
 
-#inputDateQuery{
+#inputDateExam{
   width: 150px;
 }
 
@@ -126,7 +132,7 @@ textarea::placeholder{
 
 @media screen and (max-width: 900px){
 
-  .conteiner-form-query{
+  .conteiner-form-exam{
     width: 450px;
   }
 
@@ -138,40 +144,45 @@ textarea::placeholder{
     margin-left: 290px;
   }
   
-  .query-from-user{
+  .exam-from-user{
     margin-left: 20px;
   }
   
-  .reason-query{
+  .name-exam{
     margin-left: 20px;
     width: 180px;
   }
   
-  .date-query{
+  .date-exam{
     margin-left: 216px;
   }
   
-  .time-query{
+  .time-exam{
     margin-left: 340px;
   }
   
-  .problem-query{
+  .type-exam{
     margin-left: 20px;
     width: 420px;
   }
   
-  .medication-query{
+  .lab-exam{
+    margin-left: 20px;
+    width: 420px;
+  }
+
+  .url-exam{
     margin-left: 20px;
     width: 420px;
   }
   
-  .dosage-query{
+  .results-exam{
     margin-left: 20px;
     width: 420px;
   }
   
   
-  #inputDateQuery{
+  #inputDateExam{
     width: 110px;
   }
   

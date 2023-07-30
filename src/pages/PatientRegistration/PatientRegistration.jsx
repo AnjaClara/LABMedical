@@ -121,7 +121,7 @@ function PatientRegistration(){
 
             <div className="form-group">
                 <label htmlFor="date-birth">Date of Birth</label>
-                <input name="date" type="date" id="inputDate" className="form-control" max="2005-12-31" required/>
+                <input name="date" type="date" id="inputDate" {...register('date')} className="form-control" max="2005-12-31" required/>
             </div>
 
             <div className="form-group4-patient">

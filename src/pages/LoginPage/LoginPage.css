@@ -73,6 +73,7 @@ h1, .title-login{
   border-radius: 6px;
   padding: 0px 0 0 0;
   margin-bottom: 15px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.082);
 }
 
 .form-group{

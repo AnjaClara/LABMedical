@@ -10,6 +10,7 @@ body{
   height: 100% !important;
   width: 100% !important;
   margin-left: 9.5% !important;
+  margin-right: 9.5% !important;
   align-items: center !important;
 }
 
@@ -40,6 +41,7 @@ body{
   border-radius: 6px;
   padding: 0px 0 0 0;
   margin-top: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.082);
 }
 
 .form-group1-patient{
@@ -91,10 +93,6 @@ body{
   margin-top: -62px !important;
   color: var(--lavanda);
   width: 170px;
-}
-
-.invalid-feedback{
-  z-index: 2;
 }
 
 .form-group7-patient{
@@ -228,13 +226,13 @@ body{
 
 #buttonDelete{
   width: 90px;
-  margin-left: 20px;
+  margin-left: 22px;
   margin-top: 35px !important;
 }
 
 #buttonEdit{
   width: 90px;
-  margin-left: 25%;
+  margin-left: 28%;
   margin-top: 35px !important;
 }
 
@@ -242,6 +240,10 @@ body{
   width: 210px !important;
   margin-top: -3px !important;
   position:absolute;
+  z-index: 2;
+  background-color: var(--ligh-blue);
+  border-radius: 10px;
+  border: 1px solid var(--lavanda);
 }
 
 select{
@@ -416,10 +418,13 @@ select:focus{
   }
 
   .invalid-feedback{
-    width: 100px !important;
+    width: 150px !important;
     margin-top: -3px !important;
     position: absolute !important;
     z-index: 2;
+    background-color: var(--ligh-blue);
+    border-radius: 10px;
+    border: 1px solid var(--lavanda);
   }
 
   .conteiner-form-patient{

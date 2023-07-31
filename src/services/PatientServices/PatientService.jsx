@@ -23,6 +23,7 @@ const Create = (data) => {
     ...data,
     id: (Get().length || 0) + 1
   }
+  console.log(body)
   LocalStorageService.Set(key, body);
 }
 

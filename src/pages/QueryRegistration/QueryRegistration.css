@@ -7,11 +7,17 @@ body{
 }
 
 .form-query{
-  height: 100% !important;
+  height: 80% !important;
   width: 100% !important;
   margin-left: 9.5% !important;
   margin-right: 9.5% !important;
   align-items: center !important;
+}
+
+.search{
+  margin-bottom: 470px;
+  margin-right: 690px;
+  position:absolute;
 }
 
 .title-query h1{
@@ -52,14 +58,12 @@ body{
   position: absolute;
   margin-left: 50px;
   color: var(--lavanda);
-  margin-top: -30px !important;
   width: 550px;
 }
 
 #buttonSearch{
   position: absolute;
   width: 100px;
-  margin-top: -40px !important;
   margin-left: 570px;
   height: 40px;
 }
@@ -126,16 +130,27 @@ textarea::placeholder{
 
 @media screen and (max-width: 900px){
 
+  .search{
+    margin-bottom: 510px;
+    margin-right: 370px;
+  }
+
+  .form-query{
+    height: 90% !important;
+  }
+
   .conteiner-form-query{
-    width: 450px;
+    width: 465px;
+    height: 550px;
   }
 
   .search-user{
-    width: 280px;
+    width: 250px;
   }
   
   #buttonSearch{
-    margin-left: 290px;
+    margin-left: 270px;
+    width: 80px;
   }
   
   .query-from-user{

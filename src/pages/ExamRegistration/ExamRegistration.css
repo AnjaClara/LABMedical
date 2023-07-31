@@ -7,7 +7,7 @@ body{
 }
 
 .form-exam{
-  height: 100% !important;
+  height: 88% !important;
   width: 100% !important;
   margin-left: 9.5% !important;
   margin-right: 9.5% !important;
@@ -20,6 +20,12 @@ body{
   font-size: 2.5em;
   line-height: 1.1;
   text-align: center;
+}
+
+.search-exam{
+  margin-bottom: 545px;
+  margin-right: 690px;
+  position:absolute;
 }
 
 .content-form-exam{
@@ -37,7 +43,7 @@ body{
   margin: 0 auto;
   background-color: var(--blue);
   width: 850px;
-  height: 595px;
+  height: 585px;
   border-radius: 6px;
   padding: 0px 0 0 0;
   margin-top: 20px;
@@ -132,8 +138,13 @@ textarea::placeholder{
 
 @media screen and (max-width: 900px){
 
+  .search-exam{
+    margin-bottom: 540px;
+    margin-right: 370px;
+  }
+
   .conteiner-form-exam{
-    width: 450px;
+    width: 465px;
   }
 
   .search-user{

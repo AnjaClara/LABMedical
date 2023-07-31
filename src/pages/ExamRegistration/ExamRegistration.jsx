@@ -5,19 +5,18 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import * as BiIcon from "react-icons/bi";
 import { ExamService } from '../../services/ExamService/ExamService';
+import { PatientService } from '../../services/PatientServices/PatientService';
+import { useState } from 'react';
 
 const style = { color: "var(--black-purple)"};
 
-
 function ExamRegistration(){
+
   const currentDate = new Date();
 
   const formSchema = Yup.object().shape({
     search: Yup.string()
-      .required('We need to know the name')
-      .max(50, 'Maximum 50 characters')
-      .min(5, 'Minimum 5 characters')
-      .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, 'Name must contain only letters'),
+      .required('We need to know the patient'),
     exam: Yup.string()
       .required('We must know the name of the exam')
       .min(5, 'Minimum 5 characters')
@@ -50,10 +49,25 @@ function ExamRegistration(){
   const formOptions = { resolver: yupResolver(formSchema) };
   const { register, handleSubmit, setValue, setFocus, reset, formState } = useForm(formOptions);
   const { errors } = formState;
+  const [patient, setPatient] = useState();
+  const [exam, setExam] = useState();
 
-  function onSubmit(data) {   
-    ExamService.Create(data)
+  function onSubmit(data) { 
+    const body = {...data, patientId: patient.id}   
+    ExamService.Create(body)
+    console.log(body)
     return alert('Exam successfully registered!!')
+  }
+
+  function getPatient(){
+    console.log(exam)
+    const data = PatientService.ShowByEmail(exam);
+    setPatient(data);
+    console.log(data)
+  }
+
+  function handleSearch(e){
+    setExam(e.target.value)
   }
 
   return(
@@ -67,19 +81,21 @@ function ExamRegistration(){
           <h1><strong>EXAM REGISTRATION</strong></h1>
         </div>
         <div className="conteiner-form-exam">
-          <form className="form-exam" onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-row">
+          <div className='search-exam'>
               <div className='search-icon'>
                 <BiIcon.BiSearchAlt2 style={style} size={40}/>
               </div>
               <div className="search-user">
-                <input name="search" type="text" id="inputSearch" placeholder="search for patient" required {...register('search')} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
+                <input name="search" type="text" onInput={handleSearch}  id="inputSearch" placeholder="search only for e-mail patient..." required {...register('search')} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.search?.message}</div>
-                  <button type="submit" id="buttonSearch" className="btn btn-primary">Search</button>
+                  <button type="submit" id="buttonSearch" onClick={getPatient} className="btn btn-primary">Search</button>
               </div>
+          </div>
+          <form className="form-exam" onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-row">
 
               <div className='exam-from'>
-                <p className='exam-from-user'><strong>Exam from {}</strong></p>
+                <p className='exam-from-user'><strong>Exam from {patient?.name}</strong></p>
               </div>
 
               <div className="name-exam">
@@ -91,12 +107,12 @@ function ExamRegistration(){
               <div className="date-exam">
                 <label htmlFor="date-exam">Date of Exam</label>
                 <input name="dateExam" type="date" id="inputDateExam" required {...register('dateExam')} className={`form-control ${errors.dateExam ? 'is-invalid' : ''}`}/>
-                <div className="invalid-feedback">{errors.dateExam?.message}</div>
+                  <div className="invalid-feedback">{errors.dateExam?.message}</div>
               </div>
             </div>
 
             <div className='time-exam'>
-              <label for="time">Exam Time</label>
+              <label htmlFor="time">Exam Time</label>
               <input type="time" id="inputTime" name="time" {...register('time')} className={`form-control ${errors.time ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.time?.message}</div>
             </div>
@@ -115,8 +131,7 @@ function ExamRegistration(){
 
             <div className="url-exam">
               <label htmlFor="inputURL">Document URL</label>
-              <input name="url" type="url" id="inputURL" placeholder='https://example.com' {...register('url')} className={`form-control ${errors.url ? 'is-invalid' : ''}`}/>
-                  <div className="invalid-feedback">{errors.url?.message}</div>
+              <input name="url" type="url" id="inputURL" placeholder='https://example.com' {...register('url')} className='form-control'/>
             </div>
 
             <div className="results-exam">
@@ -125,8 +140,8 @@ function ExamRegistration(){
                   <div className="invalid-feedback">{errors.results?.message}</div>
             </div>
             
-            <button type="submit" id="buttonEdit" className="btn btn-primary" disabled>Edit</button>
-            <button type="submit" id="buttonDelete" className="btn btn-primary" disabled>Delete</button>
+            <button type='button' id="buttonEdit" className="btn btn-primary" disabled>Edit</button>
+            <button type='button' id="buttonDelete" className="btn btn-primary" disabled>Delete</button>
             <button type="submit" id="buttonSave" className="btn btn-primary">Save</button>
  
           </form>

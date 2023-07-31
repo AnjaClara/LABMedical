@@ -1,0 +1,49 @@
+@import url('../../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import '../../styles/root.css';
+
+body{
+  background-color: var(--ligh-blue);
+  font-family: Arial, sans-serif;
+}
+
+.search-record{
+  margin-bottom: 470px;
+  margin-right: 690px;
+  position:absolute;
+}
+
+.title-record h1{
+  margin-top: 25px;
+  color: var(--purple) !important;
+  font-size: 2.5em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.conteiner-record{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  /* background-color: var(--blue); */
+  width: 1050px;
+  height: 530px;
+  border-radius: 6px;
+  padding: 0px 0 0 0;
+  margin-top: 20px;
+  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.082); */
+}
+
+@media screen and (max-width: 900px){
+
+  .search-record{
+    margin-bottom: 510px;
+    margin-right: 370px;
+  }
+
+  .conteiner-record{
+    width: 465px;
+    height: 550px;
+  }
+
+}

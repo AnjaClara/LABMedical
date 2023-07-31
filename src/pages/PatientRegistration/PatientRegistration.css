@@ -36,7 +36,7 @@ body{
   align-items: center;
   margin: 0 auto;
   background-color: var(--blue);
-  width: 900px;
+  width: 880px;
   height: 620px;
   border-radius: 6px;
   padding: 0px 0 0 0;
@@ -268,7 +268,7 @@ select:focus{
   outline: none;
 }
 
-@media screen and (max-width: 940px){
+@media screen and (max-width: 900px){
   .form-group1-patient{
     font-size: 15px;
     width: 80px;

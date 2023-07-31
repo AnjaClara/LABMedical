@@ -5,6 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import * as BiIcon from "react-icons/bi";
 import { QueryService } from '../../services/QueryServices/QueryService';
+import { useState } from 'react';
+import { PatientService } from '../../services/PatientServices/PatientService';
 
 const style = { color: "var(--black-purple)"};
 
@@ -14,10 +16,7 @@ function QueryRegistration(){
 
   const formSchema = Yup.object().shape({
     search: Yup.string()
-      .required('We need to know the name')
-      .max(50, 'Maximum 50 characters')
-      .min(5, 'Minimum 5 characters')
-      .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, 'Name must contain only letters'),
+      .required('We need to know the patient'),
     reason: Yup.string()
       .required('We must know the reason query')
       .min(6, 'Minimum 6 characters')
@@ -46,10 +45,24 @@ function QueryRegistration(){
   const formOptions = { resolver: yupResolver(formSchema) };
   const { register, handleSubmit, setValue, setFocus, reset, formState } = useForm(formOptions);
   const { errors } = formState;
+  const [patient, setPatient] = useState();
+  const [query, setQuery] = useState();
 
-  function onSubmit(data) {   
-    QueryService.Create(data)
+  function onSubmit(data) {  
+    const body = {...data, patientId: patient.id} 
+    QueryService.Create(body)
     return alert('Query successfully registered!!')
+  }
+
+  function getPatient(){
+    console.log(query)
+    const data = PatientService.ShowByEmail(query);
+    setPatient(data);
+    console.log(data)
+  }
+
+  function handleSearch(e){
+    setQuery(e.target.value)
   }
 
   return(
@@ -63,19 +76,20 @@ function QueryRegistration(){
           <h1><strong>QUERY REGISTRATION</strong></h1>
         </div>
         <div className="conteiner-form-query">
+          <div className='search'>
+            <div className='search-icon'>
+              <BiIcon.BiSearchAlt2 style={style} size={40}/>
+            </div>
+            <div className="search-user">
+              <input name="search" type="text" onInput={handleSearch}  id="inputSearch" placeholder="search only for e-mail patient..." required {...register('search')} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
+                <div className="invalid-feedback">{errors.search?.message}</div>
+                <button type="submit" id="buttonSearch" onClick={getPatient} className="btn btn-primary">Search</button>
+            </div>
+          </div>
           <form className="form-query" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-row">
-              <div className='search-icon'>
-                <BiIcon.BiSearchAlt2 style={style} size={40}/>
-              </div>
-              <div className="search-user">
-                <input name="search" type="text" id="inputSearch" placeholder="search for patient" required {...register('search')} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
-                  <div className="invalid-feedback">{errors.search?.message}</div>
-                  <button type="submit" id="buttonSearch" className="btn btn-primary">Search</button>
-              </div>
-
               <div className='query-from'>
-                <p className='query-from-user'><strong>Query from {}</strong></p>
+                <p className='query-from-user'><strong>Query from {patient?.name}</strong></p>
               </div>
 
               <div className="reason-query">
@@ -92,7 +106,7 @@ function QueryRegistration(){
             </div>
 
             <div className='time-query'>
-              <label for="time">Query Time</label>
+              <label htmlFor="time">Query Time</label>
               <input type="time" id="inputTime" name="time" {...register('time')} className={`form-control ${errors.time ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.time?.message}</div>
             </div>

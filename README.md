@@ -46,8 +46,7 @@ $ npm run dev
 
 <p>The page is already running, to access it, just click on the localhost provided in the terminal:</p>
 
-[![localhost](https://i.im.ge/2023/08/02/9kMIo1.localhost.png)](https://im.ge/i/9kMIo1)
-
+![login](https://github.com/AnjaClara/PROG2/assets/105654178/09665e8e-be8b-464e-aaab-bf119b2ee240)
 <p></p>
 
 ## ⁉️ How to use

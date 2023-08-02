@@ -55,7 +55,7 @@ $ npm run dev
 <br>
 After going to localhost, you will be on a Login screen:
 
-[![login](https://i.im.ge/2023/08/02/9zMtM8.login.png)](https://im.ge/i/9zMtM8)
+![login](https://github.com/AnjaClara/LABMedical/assets/105654178/4c459b85-bece-4ff2-a66d-008c601cb198)
 
 ### **ENTER THE APPLICATION**
 

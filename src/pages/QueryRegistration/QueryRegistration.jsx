@@ -7,6 +7,8 @@ import * as BiIcon from "react-icons/bi";
 import { QueryService } from '../../services/QueryServices/QueryService';
 import { useState } from 'react';
 import { PatientService } from '../../services/PatientServices/PatientService';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const style = { color: "var(--black-purple)"};
 
@@ -21,9 +23,6 @@ function QueryRegistration(){
       .required('We must know the reason query')
       .min(6, 'Minimum 6 characters')
       .max(60, 'Maximum 60 characters'),
-    dateQuery: Yup.date()
-      .min(currentDate, 'The appointment date must be from today')
-      .required('We must know the date'),
     time: Yup.string()
       .required('We need to know the time of the appointment')
       .test('min-max', 'The appointment time should be between 9am and 10pm', (value) => {
@@ -47,6 +46,8 @@ function QueryRegistration(){
   const { errors } = formState;
   const [patient, setPatient] = useState();
   const [query, setQuery] = useState();
+  const {queryId} = useParams();
+  const navigate = useNavigate();
 
   function onSubmit(data) {  
     const body = {...data, patientId: patient.id} 
@@ -55,37 +56,69 @@ function QueryRegistration(){
   }
 
   function getPatient(){
-    console.log(query)
     const data = PatientService.ShowByEmail(query);
     setPatient(data);
-    console.log(data)
   }
 
   function handleSearch(e){
     setQuery(e.target.value)
   }
 
+  useEffect(() =>{
+    if (queryId){
+      const dataQuery = QueryService.Show(Number(queryId))
+      setPatient(PatientService.Show(dataQuery?.patientId));
+    }
+
+  },[])
+
+  function handleDelete(){
+    return alert('In construction...')
+    // QueryService.Delete(queryId)
+    // navigate('/homepage');
+  }
+
+  function validateDate(value) {
+    if (!value) {
+      return "Date of Exam is required";
+    }
+
+    const currentDate = new Date().toISOString().split("T")[0];
+
+    if (value < currentDate) {
+      return "Date of Exam cannot be in the past";
+    }
+
+    clearErrors("dateExam");
+
+    return true; 
+  }
+
+
   return(
     <div>
       <div className="sidebar">
         <Navbar/>
       </div>
-      <body>
+      <main>
       <div className="content-query">
         <div className="title-query">
           <h1><strong>QUERY REGISTRATION</strong></h1>
         </div>
         <div className="conteiner-form-query">
-          <div className='search'>
-            <div className='search-icon'>
-              <BiIcon.BiSearchAlt2 style={style} size={40}/>
+          {
+            !queryId && 
+            <div className='search'>
+              <div className='search-icon'>
+                <BiIcon.BiSearchAlt2 style={style} size={40}/>
+              </div>
+              <div className="search-user">
+                <input name="search" type="text" onInput={handleSearch}  id="inputSearch" placeholder="search only for e-mail patient..." required {...register('search')} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
+                  <div className="invalid-feedback">{errors.search?.message}</div>
+                  <button type="submit" id="buttonSearch" onClick={getPatient} className="btn btn-primary">Search</button>
+              </div>
             </div>
-            <div className="search-user">
-              <input name="search" type="text" onInput={handleSearch}  id="inputSearch" placeholder="search only for e-mail patient..." required {...register('search')} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
-                <div className="invalid-feedback">{errors.search?.message}</div>
-                <button type="submit" id="buttonSearch" onClick={getPatient} className="btn btn-primary">Search</button>
-            </div>
-          </div>
+          }
           <form className="form-query" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-row">
               <div className='query-from'>
@@ -100,7 +133,9 @@ function QueryRegistration(){
 
               <div className="date-query">
                 <label htmlFor="date-query">Date of Query</label>
-                <input name="dateQuery" type="date" id="inputDateQuery" required {...register('dateQuery')} className={`form-control ${errors.dateQuery ? 'is-invalid' : ''}`}/>
+                <input name="dateQuery" type="date" id="inputDateQuery" required {...register('dateQuery',  {
+                  validate: validateDate,
+                })} className={`form-control ${errors.dateQuery ? 'is-invalid' : ''}`}/>
                 <div className="invalid-feedback">{errors.dateQuery?.message}</div>
               </div>
             </div>
@@ -118,7 +153,7 @@ function QueryRegistration(){
             </div>
 
             <div className="medication-query">
-              <label htmlFor="inputMedication">Medication Prescribed</label>
+              <label htmlFor="inputMedication">Prescription Medication</label>
               <textarea name="medication" type="text" id="inputMedication" placeholder='...' {...register('medication')} className='form-control'/>
             </div>
 
@@ -128,14 +163,14 @@ function QueryRegistration(){
                   <div className="invalid-feedback">{errors.dosage?.message}</div>
             </div>
             
-            <button type="submit" id="buttonEdit" className="btn btn-primary" disabled>Edit</button>
-            <button type="submit" id="buttonDelete" className="btn btn-primary" disabled>Delete</button>
-            <button type="submit" id="buttonSave" className="btn btn-primary">Save</button>
+            <button type="submit" id="buttonEdit" className="btn btn-primary" disabled={!queryId}>Edit</button>
+            <button type="button" id="buttonDelete" className="btn btn-primary" onClick={handleDelete} disabled={!queryId}>Delete</button>
+            <button type="submit" id="buttonSave" className="btn btn-primary" disabled={!!queryId}>Save</button>
  
           </form>
         </div>
       </div>
-      </body>
+      </main>
     </div>
   )
 }

@@ -10,7 +10,6 @@ import PatientRecord from './components/Patient/PatientRecord/PatientRecord'
 import PatientRegistration from './pages/PatientRegistration/PatientRegistration'
 import QueryRegistration from './pages/QueryRegistration/QueryRegistration'
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage'
-import PatientEdit from './components/Patient/PatientEdit/PatientEdit'
 
 function App() {
 
@@ -27,7 +26,9 @@ function App() {
         <Route path='examregistration' element={<ExamRegistration/>}/>
         <Route path='medicalrecordlist' element={<MedicalRecordList/>}/>
         <Route path='patientrecord/:patientId' element={<PatientRecord/>}/>
-        <Route path='patientedit/:patientId' element={<PatientEdit/>}/>
+        <Route path='patientedit/:patientId' element={<PatientRegistration/>}/>
+        <Route path='queryedit/:queryId' element={<QueryRegistration/>}/>
+        <Route path='examedit/:examId' element={<ExamRegistration/>}/>
       </Routes>
     </Router>
   )

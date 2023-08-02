@@ -50,7 +50,7 @@ function LoginPage() {
 
   return(
     <div>
-      <body>
+      <main>
         <div className='content-login'>
           <h1 className='tiltle-login'><img style={{ width: 65, height: 65 }} src={Farmacia}/> <strong>SIGN IN</strong></h1>
           <div className="container-login">
@@ -84,7 +84,7 @@ function LoginPage() {
           </div>
 
         </div>
-      </body>
+      </main>
     </div>
   );
 

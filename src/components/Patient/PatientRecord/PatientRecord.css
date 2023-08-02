@@ -1,7 +1,7 @@
 @import url('../../../../node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import '../../../styles/root.css';
 
-body{
+main{
   background-color: var(--ligh-blue);
   font-family: Arial, sans-serif;
   min-height: 100vh;
@@ -38,7 +38,6 @@ body{
   margin-right: -20px;
   margin-bottom: 5px;
   max-height: 540px;
-
 }
 
 .infos-patient{
@@ -52,4 +51,57 @@ body{
   width: 700px;
   height: 180px;
   padding: 20px 15px;
+}
+
+.infos-exam-query{
+  margin-top: 20px;
+  margin-right: -20px;
+  margin-bottom: 5px;
+  max-height: 440px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.show-infos-query, .show-infos-exam{
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-top: 10px;
+  color: var(--purple);
+  background-color: var(--blue);
+  border-radius: 10px;
+  border: 1px solid var(--lavanda);
+  width: 700px;
+  height: 390px;
+  padding: 20px 15px;
+}
+
+.buttonQuery{
+  margin-left: 530px;
+}
+
+.buttonExam {
+  margin-top: -35px !important;
+  margin-left: 530px;
+}
+
+@media screen and (max-width: 740px){
+
+  .show-infos-query, .show-infos-exam{
+    width: 400px;
+  }
+
+  .infos-patient{
+    width: 400px;
+  }
+
+  .buttonQuery{
+    margin-left: 230px;
+    margin-top: -290px !important;
+  }
+  
+  .buttonExam {
+    margin-top: -35px !important;
+    margin-left: 230px;
+  }
+
 }

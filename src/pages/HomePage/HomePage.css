@@ -1,7 +1,7 @@
 @import url('../../../node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import '../../styles/root.css';
 
-body{
+main{
   background-color: var(--ligh-blue);
   font-family: Arial, sans-serif;
   min-height: 100vh;
@@ -27,14 +27,14 @@ body{
 
 .search-home{
   margin-bottom: 580px;
-  margin-right: 690px;
-  position:absolute;
+  margin-right: 0px;
+  /* position:absolute; */
 }
 
 .show-numbers{
   position: absolute;
   color: var(--black-purple);
-  margin-left: 1040px;
+  margin-left: 1150px;
   margin-bottom: 160px; 
   text-align: center;
 }
@@ -74,7 +74,7 @@ body{
 }
 
 .show-list-home{
-  margin-top: 50px;
+  margin-top: 100px;
   margin-right: -20px;
   margin-bottom: 5px;
   max-height: 540px;
@@ -84,7 +84,7 @@ body{
 
 .list-patient-home{
   margin-left: 0px;
-  margin-right: 10px;
+  margin-right: 100px;
   margin-top: 10px;
   color: var(--purple);
   background-color: var(--blue);

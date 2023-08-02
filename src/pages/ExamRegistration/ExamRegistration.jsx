@@ -1,12 +1,11 @@
 import Navbar from '../../components/Sidebar/Navbar/Navbar'
 import './ExamRegistration.css'
 import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as Yup from 'yup'
 import * as BiIcon from "react-icons/bi";
 import { ExamService } from '../../services/ExamService/ExamService';
 import { PatientService } from '../../services/PatientServices/PatientService';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const style = { color: "var(--black-purple)"};
 
@@ -16,11 +15,15 @@ function ExamRegistration(){
   const { errors } = formState;
   const [patient, setPatient] = useState();
   const [exam, setExam] = useState();
+  const {examId} = useParams()
+  const navigate = useNavigate();
 
   function onSubmit(data) { 
+
     const body = {...data, patientId: patient.id}   
     ExamService.Create(body)
     return alert('Exam successfully registered!!')
+    
   }
 
   function getPatient(){
@@ -31,6 +34,14 @@ function ExamRegistration(){
   function handleSearch(e){
     setExam(e.target.value)
   }
+
+  useEffect(() =>{
+    if (examId){
+      const dataExam = ExamService.Show(Number(examId))
+      setPatient(PatientService.Show(dataExam?.patientId));
+    }
+
+  },[])
 
   function validateDate(value) {
     if (!value) {
@@ -65,20 +76,27 @@ function ExamRegistration(){
 
     return true;
   }
-  
 
+  function handleDelete(){
+    return alert('In construction...')
+    // ExamService.Delete(examId)
+    // navigate('/homepage');
+  }
+  
   return(
     <div>
       <div className="sidebar">
         <Navbar/>
       </div>
-      <body>
+      <main>
       <div className="content-exam">
         <div className="title-exam">
           <h1><strong>EXAM REGISTRATION</strong></h1>
         </div>
         <div className="conteiner-form-exam">
-          <div className='search-exam'>
+          {
+            !examId && 
+            <div className='search-exam'>
               <div className='search-icon'>
                 <BiIcon.BiSearchAlt2 style={style} size={40}/>
               </div>
@@ -89,8 +107,8 @@ function ExamRegistration(){
                   <div className="invalid-feedback">{errors.search?.message}</div>
                   <button type="submit" id="buttonSearch" onClick={getPatient} className="btn btn-primary">Search</button>
               </div>
-          </div>
-
+           </div>
+          }
           
           <form className="form-exam" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-row">
@@ -163,14 +181,14 @@ function ExamRegistration(){
                   <div className="invalid-feedback">{errors.results?.message}</div>
             </div>
             
-            <button type='button' id="buttonEdit" className="btn btn-primary" disabled>Edit</button>
-            <button type='button' id="buttonDelete" className="btn btn-primary" disabled>Delete</button>
-            <button type="submit" id="buttonSave" className="btn btn-primary">Save</button>
+            <button type='submit' id="buttonEdit" className="btn btn-primary" disabled={!examId}>Edit</button>
+            <button type='button' id="buttonDelete" onClick={handleDelete}  className="btn btn-primary" disabled={!examId}>Delete</button>
+            <button type="submit" id="buttonSave" className="btn btn-primary" disabled={!!examId}>Save</button>
  
           </form>
         </div>
       </div>
-      </body>
+      </main>
     </div>
   )
 }

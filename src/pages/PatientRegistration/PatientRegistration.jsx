@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { cpf } from "cpf-cnpj-validator";
 import * as Yup from 'yup'
 import { PatientService } from "../../services/PatientServices/PatientService";
+import { useNavigate, useParams } from "react-router-dom";
 
 function PatientRegistration(){
 
@@ -59,10 +60,23 @@ function PatientRegistration(){
   const formOptions = { resolver: yupResolver(formSchema) };
   const { register, handleSubmit, setValue, setFocus, reset, formState } = useForm(formOptions);
   const { errors } = formState;
+  const {patientId} = useParams();
+  const navigate = useNavigate();
 
-  function onSubmit(data) {   
-    PatientService.Create(data)
-    return alert('Patient successfully registered!!')
+  function onSubmit(data) { 
+    
+    if(!patientId){
+      PatientService.Create(data)
+      return alert('Patient successfully registered!!')
+    }else{
+      PatientService.Update(patientId, data)
+      return alert('Data successfully updated!')
+    }
+    
+  }
+
+  function handleDelete(){
+    return alert('In construction...')
   }
 
   const checkBlur =(e) =>{
@@ -79,15 +93,15 @@ function PatientRegistration(){
         setValue('neighbourhood', data.bairro);
         setFocus('number', data.numero)
       })
-
   }
+
 
   return(
     <div>
       <div className="sidebar">
         <Navbar/>
       </div>
-      <body>
+      <main>
       <div className="content-patient-register">
         <div className="title-patient">
           <h1><strong>PATIENT REGISTRATION</strong></h1>
@@ -242,14 +256,14 @@ function PatientRegistration(){
               <textarea name="care" type="text" className="form-control" id="inputCareList" {...register('care')}/>
             </div>
             
-            <button type="submit" id="buttonEdit" className="btn btn-primary" disabled>Edit</button>
-            <button type="submit" id="buttonDelete" className="btn btn-primary" disabled>Delete</button>
-            <button type="submit" id="buttonSave" className="btn btn-primary">Save</button>
+            <button type='submit' id="buttonEdit" className="btn btn-primary" disabled={!patientId}>Edit</button>
+            <button type='button' id="buttonDelete" onClick={handleDelete} className="btn btn-primary" disabled={!patientId}>Delete</button>
+            <button type='submit' id="buttonSave" className="btn btn-primary" disabled={!!patientId}>Save</button>
 
           </form>
         </div>
       </div>
-      </body>
+      </main>
     </div>
   )
 }

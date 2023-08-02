@@ -94,6 +94,10 @@ number of patients, number of consultations and number of exams. You can also cl
 
 ![recordlist](https://github.com/AnjaClara/PROG2/assets/105654178/218113c7-a19a-44c9-a30b-2979724d58f2)
 
+- When clicked on more details, the page **Patient Record** will be displayed. In it you can view in more detail the consultations and exams.
+
+![patientrecord](https://github.com/AnjaClara/PROG2/assets/105654178/b2032343-5bb6-44da-bc4c-b02b6fbb7e56)
+
 <br>
 
 ## 👩🏻‍💻 Technologies 

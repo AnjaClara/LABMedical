@@ -23,7 +23,7 @@ const Create = (data) => {
     ...data,
     id: (Get().length || 0) + 1
   }
-  console.log(body)
+
   LocalStorageService.Set(key, body);
 }
 
@@ -38,7 +38,7 @@ const Update = (id, data) => {
 }
 
 const Delete = (id) => {
-  Create(Get().find(patient => patient.id != id))
+  Create(Get().find(patient => patient.id != id)) 
 }
 
 export const PatientService = {

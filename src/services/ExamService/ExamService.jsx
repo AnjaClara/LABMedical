@@ -24,7 +24,7 @@ const Create = (data) => {
     id: (Get().length || 0) + 1    
   } 
   LocalStorageService.Set(key, body);
-  console.log(body)
+
 }
 
 const Update = (id, data) => {

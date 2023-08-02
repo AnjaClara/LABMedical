@@ -45,7 +45,7 @@ function HomePage(){
       <div className="sidebar-record">
         <Navbar/>
       </div>
-      <body>
+      <main>
         <div className="content-home">
           <div className="title-home">
             <h1><strong>HOME PAGE</strong></h1>
@@ -116,7 +116,7 @@ function HomePage(){
               </div>
           </div>
         </div>
-      </body>
+      </main>
     </div>
   )
 }

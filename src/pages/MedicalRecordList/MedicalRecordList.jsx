@@ -41,7 +41,7 @@ function MedicalRecordList(){
       <div className="sidebar-record">
         <Navbar/>
       </div>
-      <body>
+      <main>
       <div className="content-record">
         <div className="title-record">
           <h1><strong>MEDICAL RECORD LIST</strong></h1>
@@ -78,7 +78,7 @@ function MedicalRecordList(){
           </div>
         </div>
       </div>
-      </body>
+      </main>
     </div>
   )
 }

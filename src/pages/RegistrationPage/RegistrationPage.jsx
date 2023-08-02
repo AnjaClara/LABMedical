@@ -40,7 +40,7 @@ function RegistrationPage() {
   
   return(
     <div>
-      <body>
+      <main>
         <div className='content-registration'>
         <h1 className='tiltle-registration'><img style={{ width: 65, height: 65 }} src={Arquivo}/><strong> SIGN UP</strong></h1>
           <div className="container-registration">
@@ -79,7 +79,7 @@ function RegistrationPage() {
           </div>
 
         </div>
-      </body>
+      </main>
     </div>
   );
 

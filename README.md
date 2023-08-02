@@ -46,7 +46,7 @@ $ npm run dev
 
 <p>The page is already running, to access it, just click on the localhost provided in the terminal:</p>
 
-![login](https://github.com/AnjaClara/PROG2/assets/105654178/09665e8e-be8b-464e-aaab-bf119b2ee240)
+![rundev](https://github.com/AnjaClara/PROG2/assets/105654178/959426d5-fadb-492e-8fe5-95c692732aa1)
 <p></p>
 
 ## ⁉️ How to use
@@ -54,45 +54,45 @@ $ npm run dev
 <br>
 After going to localhost, you will be on a Login screen:
 
-![login](https://github.com/AnjaClara/LABMedical/assets/105654178/4c459b85-bece-4ff2-a66d-008c601cb198)
+![login](https://github.com/AnjaClara/PROG2/assets/105654178/09665e8e-be8b-464e-aaab-bf119b2ee240)
 
 ### **ENTER THE APPLICATION**
 
 - As you have not registered, you will not be able to access the platform. Therefore, click on **Create it here!** to register and then return to the **login** page with these data to enter the application.
 
-[![createaccount](https://i.im.ge/2023/08/02/9zMZIf.createaccount.png)](https://im.ge/i/9zMZIf)
+![createaccount](https://github.com/AnjaClara/PROG2/assets/105654178/f8e795fc-3571-4935-ad4d-97cbe370bcbd)
  
 
 - When you log in, the Home Page will appear:
 
-[![homepage](https://i.im.ge/2023/08/02/9zTwG8.homepage.png)](https://im.ge/i/9zTwG8)
+![homepage](https://github.com/AnjaClara/PROG2/assets/105654178/a32a24e4-cb41-43ac-a317-34ae54d01963)
 
 - On the Home Page the doctor will be able to visualize all the patients already registered, some of the main data 
 number of patients, number of consultations and number of exams. You can also click on **More Details** to view, edit or delete other information.
 
 - On all pages there will be a **Sidebar** so that the doctor can choose the page he/she wants to use at the moment.
 
-[![sidebar](https://i.im.ge/2023/08/02/9zT3lq.sidebar.png)](https://im.ge/i/9zT3lq)
+![sidebar](https://github.com/AnjaClara/PROG2/assets/105654178/a44f3d4e-83b3-469c-ad71-4d5be78ff841)
 
 - Following the order of the Sidebar, we will access the **Patient Registration** page.
 
 - On this page, there will be a patient registration form with the necessary validations to proceed with the analysis. At this point, the delete and save buttons are disabled.
 
-[![patientregistration](https://i.im.ge/2023/08/02/9zTvex.patientregistration.png)](https://im.ge/i/9zTvex)
+![patientregistration](https://github.com/AnjaClara/PROG2/assets/105654178/63628295-d254-4393-9ca5-d818d7d90395)
 
 - After the patient registration, you can perform the registration of **Queries** and **Exams** of that same patient or another already registered, just search for the patient by e-mail and proceed with the data requested on each page.
 
 - **QUERY REGISTRATION**
 
-[![queryregistration](https://i.im.ge/2023/08/02/9zTBvy.queryregistration.png)](https://im.ge/i/9zTBvy)
+![queryregistration](https://github.com/AnjaClara/PROG2/assets/105654178/7528aaae-3e4b-4413-8778-59a0795a911e)
 
 - **EXAM REGISTRATION**
 
-[![examregistration](https://i.im.ge/2023/08/02/9zoFD8.examregistration.png)](https://im.ge/i/9zoFD8)
+![examregistration](https://github.com/AnjaClara/PROG2/assets/105654178/ecd270d7-bcd0-470f-9aaa-bc5bc589c94d)
 
 - The next page will be the **Medical Record List**, where you can see a list of registered patients with some information. You will be able to search for a specific patient by e-mail and also see more details about consultations and exams performed.
 
-[![recordlist](https://i.im.ge/2023/08/02/9zoJ9C.recordlist.png)](https://im.ge/i/9zoJ9C)
+![recordlist](https://github.com/AnjaClara/PROG2/assets/105654178/218113c7-a19a-44c9-a30b-2979724d58f2)
 
 <br>
 

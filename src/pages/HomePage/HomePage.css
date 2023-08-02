@@ -1,0 +1,194 @@
+@import url('../../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import '../../styles/root.css';
+
+body{
+  background-color: var(--ligh-blue);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.title-home h1{
+  margin-top: 25px;
+  color: var(--purple) !important;
+  font-size: 2.5em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.conteiner-home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 6px;
+  padding: 0px 0 50px 0;
+  margin-top: 20px;
+}
+
+.search-home{
+  margin-bottom: 580px;
+  margin-right: 690px;
+  position:absolute;
+}
+
+.show-numbers{
+  position: absolute;
+  color: var(--black-purple);
+  margin-left: 1040px;
+  margin-bottom: 160px; 
+  text-align: center;
+}
+
+.numbers-patient{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: var(--blue);
+  border-radius: 10px;
+  border: 1px solid var(--lavanda);
+  padding: 10px 10px;
+}
+
+.numbers-query{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: var(--blue);
+  border-radius: 10px;
+  border: 1px solid var(--lavanda);
+  padding: 10px 10px;
+}
+
+.numbers{
+  background-color: var(--ligh-blue);
+  border-radius: 10px;
+  border: 1px solid var(--lavanda);
+  padding: 3px 0px 3px;
+}
+
+.numbers-exam{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: var(--blue);
+  border-radius: 10px;
+  border: 1px solid var(--lavanda);
+  padding: 10px 10px;
+}
+
+.show-list-home{
+  margin-top: 50px;
+  margin-right: -20px;
+  margin-bottom: 5px;
+  max-height: 540px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.list-patient-home{
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-top: 10px;
+  color: var(--purple);
+  background-color: var(--blue);
+  border-radius: 10px;
+  border: 1px solid var(--lavanda);
+  width: 670px;
+  height: 240px;
+  padding: 20px 15px;
+}
+
+#buttonHome{
+  width: 120px;
+  height: 50px;
+  padding: 10px 0px 10px;
+  position: relative; 
+}
+
+.button-modal-home{
+  margin-left: 500px;
+  margin-top: -100px; 
+}
+
+.patient-icon{
+  margin-top: -10px;
+}
+
+.name-home{
+  margin-left: 60px;
+  margin-top: -40px;
+  z-index: 2;
+}
+
+.itens-home{
+  margin-top: 80px !important;
+}
+
+#buttonSearchHome{
+  position: absolute;
+  width: 100px;
+  margin-top: -40px !important;
+  margin-left: 570px;
+  height: 40px;
+}
+
+.input-search-home{
+  position: absolute;
+  margin-left: 50px;
+  color: var(--lavanda);
+  margin-top: -30px !important;
+  width: 550px;
+}
+
+@media screen and (max-width: 1180px){
+
+  .input-search-home{
+    width: 280px;
+  }
+
+  #buttonSearchHome{
+    margin-left: 290px;
+  }
+
+  .search-home{
+    margin-bottom: 460px;
+    margin-right: 370px;
+  }
+
+  .list-patient-home{
+    width: 450px;
+    height: 260px;
+  }
+
+  .button-modal-home{
+    margin-left: 300px;
+    margin-top: -200px; 
+  }
+
+  .show-list-home{
+    max-height: 400px;
+  }
+
+  .numbers-patient{
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 130px;
+    float: right;
+  }
+  
+  .numbers-query{
+    margin-left: 10px;
+    float: right;
+    width: 130px;
+  }
+  
+  .numbers-exam{
+    float: right;
+    width: 130px;
+  }
+
+  .show-numbers{
+    margin-left: 10px;
+    margin-bottom: -600px; 
+    text-align: center;
+  }  
+  
+ 
+}

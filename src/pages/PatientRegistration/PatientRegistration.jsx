@@ -173,17 +173,17 @@ function PatientRegistration(){
 
             <div className="form-group11-patient">
               <label htmlFor="insurance">Medical Insurance</label>
-              <input name="insurance" type="text" id="insurance" className="form-control" placeholder="patient medical insurance"/>
+              <input name="insurance" type="text" id="insurance" className="form-control" placeholder="patient medical insurance" {...register('insurance')}/>
             </div>
 
             <div className="form-group12-patient">
               <label htmlFor="insurance-number">Insurance Number</label>
-              <input name="ninsurance" type="text" id="insurance-number" className="form-control" placeholder="insurance number" />          
+              <input name="ninsurance" type="text" id="insurance-number" className="form-control" placeholder="insurance number" {...register('ninsurance')}/>          
             </div>
 
             <div className="form-group13-patient">
               <label htmlFor="insurance-validity">Insurance Validuty</label>
-              <input name="vinsurance" type="text" id="insurance-validity" className="form-control" placeholder="validity"/>            
+              <input name="vinsurance" type="text" id="insurance-validity" className="form-control" placeholder="validity" {...register('vinsurance')}/>            
             </div>
 
             <div className="form-group14-patient">
@@ -224,22 +224,22 @@ function PatientRegistration(){
 
             <div className="form-group20-patient">
               <label htmlFor="inputComplement">Complement</label>
-              <input name="complement" type="text" id="inputComplement" className="form-control" placeholder="Ex: apartment, house..."/>
+              <input name="complement" type="text" id="inputComplement" className="form-control" placeholder="Ex: apartment, house..." {...register('complement')}/>
             </div>
 
             <div className="form-group21-patient">
               <label htmlFor="inputPointOfReference">Point of reference</label>
-              <input name="reference" type="text" id="inputPointOfReference" className="form-control" placeholder="Ex: across the shopping street"/>
+              <input name="reference" type="text" id="inputPointOfReference" className="form-control" placeholder="Ex: across the shopping street" {...register('reference')}/>
             </div>
 
             <div className="form-group22-patient">
               <label htmlFor="inputListOfAllergies">List of Allergies</label>
-              <textarea name="allergies" type="text" className="form-control" id="inputListOfAllergies"/>
+              <textarea name="allergies" type="text" className="form-control" id="inputListOfAllergies" {...register('allergies')}/>
             </div>
 
             <div className="form-group23-patient">
               <label htmlFor="inputCareList">Care List</label>
-              <textarea name="care" type="text" className="form-control" id="inputCareList"/>
+              <textarea name="care" type="text" className="form-control" id="inputCareList" {...register('care')}/>
             </div>
             
             <button type="submit" id="buttonEdit" className="btn btn-primary" disabled>Edit</button>

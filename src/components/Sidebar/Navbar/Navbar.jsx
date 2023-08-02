@@ -21,7 +21,6 @@ function Navbar(){
 
   const showSidebar = () => {
     setSidebar(!sidebar);
-    console.log('worked')
   }
 
   return(

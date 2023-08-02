@@ -12,42 +12,7 @@ const style = { color: "var(--black-purple)"};
 
 function ExamRegistration(){
 
-  const currentDate = new Date();
-
-  const formSchema = Yup.object().shape({
-    search: Yup.string()
-      .required('We need to know the patient'),
-    exam: Yup.string()
-      .required('We must know the name of the exam')
-      .min(5, 'Minimum 5 characters')
-      .max(50, 'Maximum 50 characters'),
-    dateQuery: Yup.date()
-      .min(currentDate, 'The Exam date must be from today')
-      .required('We must know the date'),
-    time: Yup.string()
-      .required('We need to know the time of the Exam')
-      .test('min-max', 'The Exam time should be between 9am and 10pm', (value) => {
-        if (!value) return false;
-        const [hour, minute] = value.split(':');
-        const hourValue = parseInt(hour, 10);
-        return hourValue >= 9 && hourValue <= 22;
-      }),
-    type: Yup.string()
-      .required('We must know the type')
-      .min(5, 'Minimum 5 characters')
-      .max(30, 'Maximum 30 characters'),
-    lab: Yup.string()
-      .required('We must know the laboratory')
-      .min(5, 'Minimum 5 characters')
-      .max(30, 'Maximum 30 characters'),
-    results: Yup.string()
-      .required('We must know the results')
-      .min(15, 'Minimum 15 characters')
-      .max(1000, 'Maximum 1000 characters'),
-  })
-
-  const formOptions = { resolver: yupResolver(formSchema) };
-  const { register, handleSubmit, setValue, setFocus, reset, formState } = useForm(formOptions);
+  const { register, handleSubmit, clearErrors, setValue, setFocus, reset, formState } = useForm();
   const { errors } = formState;
   const [patient, setPatient] = useState();
   const [exam, setExam] = useState();
@@ -55,20 +20,52 @@ function ExamRegistration(){
   function onSubmit(data) { 
     const body = {...data, patientId: patient.id}   
     ExamService.Create(body)
-    console.log(body)
     return alert('Exam successfully registered!!')
   }
 
   function getPatient(){
-    console.log(exam)
     const data = PatientService.ShowByEmail(exam);
     setPatient(data);
-    console.log(data)
   }
 
   function handleSearch(e){
     setExam(e.target.value)
   }
+
+  function validateDate(value) {
+    if (!value) {
+      return "Date of Exam is required";
+    }
+
+    const currentDate = new Date().toISOString().split("T")[0];
+
+    if (value < currentDate) {
+      return "Date of Exam cannot be in the past";
+    }
+
+    clearErrors("dateExam");
+
+    return true; 
+  }
+
+  function validateTime(value) {
+    if (!value) {
+      return "Exam Time is required";
+    }
+
+    const [hours, minutes] = value.split(":").map(Number);
+
+    if (hours < 8 || hours > 22) {
+      return "Exams can only be scheduled between 8:00 and 22:00";
+    }
+
+    if (hours === 22 && minutes !== 0) {
+      return "Exams can only be scheduled between 8:00 and 22:00";
+    }
+
+    return true;
+  }
+  
 
   return(
     <div>
@@ -86,11 +83,15 @@ function ExamRegistration(){
                 <BiIcon.BiSearchAlt2 style={style} size={40}/>
               </div>
               <div className="search-user">
-                <input name="search" type="text" onInput={handleSearch}  id="inputSearch" placeholder="search only for e-mail patient..." required {...register('search')} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
+                <input name="search" type="text" onInput={handleSearch}  id="inputSearch" placeholder="search only for e-mail patient..." required {...register('search', {
+                  required: 'We need to know the patient',
+                })} className={`form-control ${errors.search ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.search?.message}</div>
                   <button type="submit" id="buttonSearch" onClick={getPatient} className="btn btn-primary">Search</button>
               </div>
           </div>
+
+          
           <form className="form-exam" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-row">
 
@@ -100,32 +101,50 @@ function ExamRegistration(){
 
               <div className="name-exam">
                 <label htmlFor="inputReasonExam">Name of the exam</label>
-                <textarea name="exam" type="exam" id="inputExam" placeholder="tell us the name..." required {...register('exam')} className={`form-control ${errors.exam ? 'is-invalid' : ''}`}/>
+                <textarea name="exam" type="exam" id="inputExam" placeholder="tell us the name..." required {...register('exam', {
+                  required: 'We must know the name of the exam',
+                  minLength: {value: 5, message:'Minimum 5 characters'},
+                  maxLength: {value: 50, message:'Maximum 50 characters'},
+                })} className={`form-control ${errors.exam ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.exam?.message}</div>
               </div>
 
               <div className="date-exam">
                 <label htmlFor="date-exam">Date of Exam</label>
-                <input name="dateExam" type="date" id="inputDateExam" required {...register('dateExam')} className={`form-control ${errors.dateExam ? 'is-invalid' : ''}`}/>
+                <input name="dateExam" type="date" id="inputDateExam" required {...register('dateExam', {
+                  validate: validateDate,
+                })}  className={`form-control ${errors.dateExam ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.dateExam?.message}</div>
               </div>
             </div>
 
             <div className='time-exam'>
               <label htmlFor="time">Exam Time</label>
-              <input type="time" id="inputTime" name="time" {...register('time')} className={`form-control ${errors.time ? 'is-invalid' : ''}`}/>
+              <input type="time" id="inputTime" name="time" {...register('time', {
+                required: "Exam Time is required", 
+                validate: validateTime,
+              }
+              )} className={`form-control ${errors.time ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.time?.message}</div>
             </div>
 
             <div className="type-exam">
               <label htmlFor="inputType">Type of Exam</label>
-              <textarea name="type" type="text" id="inputTYpe" placeholder='tell us the type with details...' required {...register('type')} className={`form-control ${errors.type ? 'is-invalid' : ''}`}/>
+              <textarea name="type" type="text" id="inputTYpe" placeholder='tell us the type with details...' required {...register('type', {
+                required: 'We must know the type',
+                minLength: {value: 5, message: 'Minimum 5 characters'},
+                maxLength: {value: 30, message: 'Maximum 30 characters'},
+              })} className={`form-control ${errors.type ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.type?.message}</div>
             </div>
 
             <div className="lab-exam">
               <label htmlFor="inputLab">Laboratory</label>
-              <textarea name="lab" type="text" id="inputLab" placeholder='...' {...register('lab')} className={`form-control ${errors.lab ? 'is-invalid' : ''}`}/>
+              <textarea name="lab" type="text" id="inputLab" placeholder='...' {...register('lab', {
+                required: 'We must know the laboratory',
+                minLength: {value: 5, message: 'Minimum 5 characters'},
+                maxLength: { value: 30, message: 'Maximum 30 characters'},
+              })} className={`form-control ${errors.lab ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.lab?.message}</div>
             </div>
 
@@ -136,7 +155,11 @@ function ExamRegistration(){
 
             <div className="results-exam">
               <label htmlFor="inputResults">Results</label>
-              <textarea name="results" type="text" id="inputResults" placeholder='...' required {...register('results')} className={`form-control ${errors.results ? 'is-invalid' : ''}`}/>
+              <textarea name="results" type="text" id="inputResults" placeholder='...' required {...register('results', {
+                required: 'We must know the results',
+                minLength: {value: 15, message: 'Minimum 15 characters'},
+                maxLength: { value: 1000, message: 'Maximum 1000 characters'},
+              })} className={`form-control ${errors.results ? 'is-invalid' : ''}`}/>
                   <div className="invalid-feedback">{errors.results?.message}</div>
             </div>
             

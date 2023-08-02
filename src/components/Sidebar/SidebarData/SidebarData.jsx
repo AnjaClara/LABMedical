@@ -34,10 +34,10 @@ export const SidebarData =  [
     icon: <FaIcon.FaBookMedical style={style}/>,
     cName: 'nav-text',
   },
-  {
-    title: 'Patient Record',
-    path: '/patientrecord',
-    icon: <BsIcon.BsFillFileEarmarkPersonFill style={style}/>,
-    cName: 'nav-text',
-  },
+  // {
+  //   title: 'Patient Record',
+  //   path: '/patientrecord',
+  //   icon: <BsIcon.BsFillFileEarmarkPersonFill style={style}/>,
+  //   cName: 'nav-text',
+  // },
 ]
